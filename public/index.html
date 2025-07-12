@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Wildfire Veil - Reignite Elloria Charity Concert</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="ember-particles" id="emberParticles"></div>
+    
+    <!-- Header -->
+    <header>
+      <nav>
+        <div class="logo">Wildfire Veil</div>
+        <ul class="nav-links">
+          <li><a href="#home">🔥 Home</a></li>
+          <li><a href="#donations">💎 Donations</a></li>
+          <li><a href="#livestream">🔮 Livestream</a></li>
+          <li><a href="#band">🎸 The Band</a></li>
+          <li><a href="#about">🏰 About Elloria</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Hero Section -->
+      <section id="home" class="hero">
+        <div class="hero-content">
+          <h1>Reignite Elloria</h1>
+          <p style="font-size: 1.5rem; margin-bottom: 2rem;">The Wildfire Veil Charity Concert</p>
+          
+          <div class="countdown">
+            <h3>Concert begins in:</h3>
+            <div class="countdown-timer" id="countdown">
+              <div class="time-unit">
+                <span id="days">15</span>
+                <small>Days</small>
+              </div>
+              <div class="time-unit">
+                <span id="hours">7</span>
+                <small>Hours</small>
+              </div>
+              <div class="time-unit">
+                <span id="minutes">23</span>
+                <small>Minutes</small>
+              </div>
+              <div class="time-unit">
+                <span id="seconds">45</span>
+                <small>Seconds</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="cta-buttons">
+            <a href="#donations" class="btn btn-primary">🔥 Donate Now</a>
+            <a href="#livestream" class="btn btn-secondary">🔮 Watch Livestream</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Progress Section -->
+      <section class="section">
+        <div class="progress-section">
+          <h2>The Phoenix Rises: Our Progress</h2>
+          <div class="fan-counter">
+            <div class="fan-count" id="fanCount">1,247,893,451</div>
+            <div style="font-size: 1.2rem; margin-top: 0.5rem;">🔥 Passionate Fans Supporting Elloria</div>
+          </div>
+          
+          <!-- Two Charity Campaigns -->
+          <div class="charity-campaigns">
+            <div class="campaign-completed">
+              <h3 style="color: #22c55e; margin-bottom: 1rem;">✅ COMPLETED: Emergency Relief</h3>
+              <div style="font-size: 1.2rem; margin-bottom: 1rem;">
+                <strong>$8,000,000</strong> raised of <strong>$8,000,000</strong> goal
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill-complete"></div>
+              </div>
+              <p style="margin-top: 1rem; font-size: 0.9rem;">🏆 Immediate aid, food, and shelter provided to all Elloria survivors!</p>
+            </div>
+            
+            <div class="campaign-ongoing">
+              <h3 style="color: #ff6b35; margin-bottom: 1rem;">🔥 ONGOING: Rebuild Elloria</h3>
+              <div style="font-size: 1.2rem; margin-bottom: 1rem;">
+                <strong>$27,900,000</strong> raised of <strong>$45,000,000</strong> goal
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill-ongoing"></div>
+              </div>
+              <p style="margin-top: 1rem; font-size: 0.9rem;">🏗️ Rebuilding the Great Library, Crystal Gardens, and Academy of Arts</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Enhanced Donation Dashboard -->
+      <section id="donations" class="section">
+        <div class="donation-dashboard">
+          <h2>Heroes Supporting Elloria</h2>
+          
+          <!-- Stats Overview -->
+          <div class="stats-overview">
+            <div class="stat-card">
+              <div class="stat-number" id="totalDonors">125,891</div>
+              <div class="stat-label">Total Heroes</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">$127.9K</div>
+              <div class="stat-label">Raised</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">87%</div>
+              <div class="stat-label">Emergency Complete</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number" id="daysLeft">15</div>
+              <div class="stat-label">Days Left</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number" id="avgDonation">$1,016</div>
+              <div class="stat-label">Avg Donation</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number" id="hourlyRate">$8.5K</div>
+              <div class="stat-label">Per Hour</div>
+            </div>
+          </div>
+
+          <!-- Tab Navigation -->
+          <div class="tab-navigation">
+            <button class="tab-btn active" onclick="switchTab('live-feed')">
+              🔴 Live Donations
+            </button>
+            <button class="tab-btn" onclick="switchTab('kingdoms')">
+              👑 Kingdom Sponsors
+            </button>
+            <button class="tab-btn" onclick="switchTab('leaderboard')">
+              🏆 Top Heroes
+            </button>
+            <button class="tab-btn" onclick="switchTab('recent')">
+              ⭐ Recent Support
+            </button>
+          </div>
+
+          <!-- Live Feed Tab -->
+          <div id="live-feed" class="tab-content active">
+            <div class="live-indicator">
+              <div class="live-dot"></div>
+              <span>LIVE - Donations updating in real-time</span>
+              <span style="margin-left: auto; font-size: 0.9rem;">
+                🔥 <span id="liveDonationCount">0</span> donations in last hour
+              </span>
+            </div>
+            <div class="live-feed" id="liveDonationFeed">
+              <!-- Live donations will be populated here -->
+            </div>
+          </div>
+
+          <!-- Kingdoms Tab -->
+          <div id="kingdoms" class="tab-content">
+            <h3 style="text-align: center; margin-bottom: 2rem;">The Realms Rally Together</h3>
+            <div class="kingdoms-grid">
+              <div class="kingdom-card" onclick="showKingdom('zaeson')">
+                <div class="kingdom-icon">💰</div>
+                <div class="kingdom-name">Kingdom of Zaeson</div>
+                <div class="kingdom-ruler">Teisaku Bugoli</div>
+                <div class="kingdom-donation">$100,000</div>
+                <div class="kingdom-message">"The famed Phoenix Chest of gold!"</div>
+              </div>
+              <div class="kingdom-card" onclick="showKingdom('merina')">
+                <div class="kingdom-icon">💎</div>
+                <div class="kingdom-name">Kingdom of Merina</div>
+                <div class="kingdom-ruler">Junchio</div>
+                <div class="kingdom-donation">$10,000</div>
+                <div class="kingdom-message">"Crystal lanterns for streetlights"</div>
+              </div>
+              <div class="kingdom-card" onclick="showKingdom('zameous')">
+                <div class="kingdom-icon">🔧</div>
+                <div class="kingdom-name">Kingdom of Zameous</div>
+                <div class="kingdom-ruler">Ajax Romano</div>
+                <div class="kingdom-donation">$6,000</div>
+                <div class="kingdom-message">"Tools and spell scrolls"</div>
+              </div>
+              <div class="kingdom-card" onclick="showKingdom('kowana')">
+                <div class="kingdom-icon">🍞</div>
+                <div class="kingdom-name">Kingdom of Kowana Aran</div>
+                <div class="kingdom-ruler">Royal Court</div>
+                <div class="kingdom-donation">$4,000</div>
+                <div class="kingdom-message">"Food & enchanted medical kits"</div>
+              </div>
+              <div class="kingdom-card" onclick="showKingdom('tarnoh')">
+                <div class="kingdom-icon">🌲</div>
+                <div class="kingdom-name">Kingdom of Tarnoh</div>
+                <div class="kingdom-ruler">Rinji Kubo</div>
+                <div class="kingdom-donation">$3,000</div>
+                <div class="kingdom-message">"Timber and seeds"</div>
+              </div>
+              <div class="kingdom-card" onclick="showKingdom('ammar')">
+                <div class="kingdom-icon">🌾</div>
+                <div class="kingdom-name">Kingdom of Ammar</div>
+                <div class="kingdom-ruler">Dante & Erissa</div>
+                <div class="kingdom-donation">$1,000</div>
+                <div class="kingdom-message">"Grain and healing herbs"</div>
+              </div>
+              <div class="kingdom-card" onclick="showKingdom('kozlek')">
+                <div class="kingdom-icon">🛡️</div>
+                <div class="kingdom-name">Kingdom of Kozlek</div>
+                <div class="kingdom-ruler">Koyuko Kohozine</div>
+                <div class="kingdom-donation">$500</div>
+                <div class="kingdom-message">"Blankets woven with protective charms"</div>
+              </div>
+              <div class="kingdom-card" onclick="showKingdom('kastron')">
+                <div class="kingdom-icon">⚒️</div>
+                <div class="kingdom-name">Kingdom of Kastron</div>
+                <div class="kingdom-ruler">Ryuki Kastron</div>
+                <div class="kingdom-donation">$350</div>
+                <div class="kingdom-message">"Rare metals for rebuilding bridges"</div>
+              </div>
+              <div class="kingdom-card" onclick="showKingdom('navarre')">
+                <div class="kingdom-icon">💧</div>
+                <div class="kingdom-name">Kingdom of Navarre</div>
+                <div class="kingdom-ruler">Royal Treasury</div>
+                <div class="kingdom-donation">$350</div>
+                <div class="kingdom-message">"Water purification stones"</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Leaderboard Tab -->
+          <div id="leaderboard" class="tab-content">
+            <div class="leaderboard">
+              <h3 style="text-align: center; margin-bottom: 2rem;">🏆 Hall of Heroes</h3>
+              <div class="leaderboard-item">
+                <div class="leaderboard-rank rank-1">👑</div>
+                <div class="leaderboard-avatar">💰</div>
+                <div class="leaderboard-info">
+                  <div class="leaderboard-name">Teisaku Bugoli</div>
+                  <div class="leaderboard-title">Kingdom of Zaeson</div>
+                </div>
+                <div class="leaderboard-amount">$100,000</div>
+              </div>
+              <div class="leaderboard-item">
+                <div class="leaderboard-rank rank-2">🥈</div>
+                <div class="leaderboard-avatar">💎</div>
+                <div class="leaderboard-info">
+                  <div class="leaderboard-name">Junchio</div>
+                  <div class="leaderboard-title">Kingdom of Merina</div>
+                </div>
+                <div class="leaderboard-amount">$10,000</div>
+              </div>
+              <div class="leaderboard-item">
+                <div class="leaderboard-rank rank-3">🥉</div>
+                <div class="leaderboard-avatar">🔧</div>
+                <div class="leaderboard-info">
+                  <div class="leaderboard-name">Ajax Romano</div>
+                  <div class="leaderboard-title">Kingdom of Zameous</div>
+                </div>
+                <div class="leaderboard-amount">$6,000</div>
+              </div>
+              <div class="leaderboard-item">
+                <div class="leaderboard-rank">4</div>
+                <div class="leaderboard-avatar">🍞</div>
+                <div class="leaderboard-info">
+                  <div class="leaderboard-name">Kowana Aran</div>
+                  <div class="leaderboard-title">Royal Court</div>
+                </div>
+                <div class="leaderboard-amount">$4,000</div>
+              </div>
+              <div class="leaderboard-item">
+                <div class="leaderboard-rank">5</div>
+                <div class="leaderboard-avatar">🌲</div>
+                <div class="leaderboard-info">
+                  <div class="leaderboard-name">Rinji Kubo</div>
+                  <div class="leaderboard-title">Kingdom of Tarnoh</div>
+                </div>
+                <div class="leaderboard-amount">$3,000</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Recent Tab -->
+          <div id="recent" class="tab-content">
+            <div style="margin-bottom: 2rem;">
+              <h3>🌟 Recent Heroes (Last 24 Hours)</h3>
+              <p style="color: rgba(255,255,255,0.8);">Latest supporters who joined our cause</p>
+            </div>
+            <div id="recentDonations">
+              <!-- Recent donations will be populated here -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Band Spotlight -->
+      <section id="band" class="section">
+        <h2>Meet the Wildfire Veil</h2>
+        <div class="band-carousel">
+          <div class="band-member" onclick="showBandMember('reyon')">
+            <div class="band-avatar" style="background: linear-gradient(45deg, #ff6b35, #dc2626);">🎤</div>
+            <h3>Reylan "Reyon" Harris</h3>
+            <p>"Lead Vocals, Rhythm Guitar, Songwriting"</p>
+          </div>
+          <div class="band-member" onclick="showBandMember('tessa')">
+            <div class="band-avatar" style="background: linear-gradient(45deg, #4a9eff, #1e40af);">🎸</div>
+            <h3>Tessa Novar</h3>
+            <p>"Lead Guitar, Backing Vocals"</p>
+          </div>
+          <div class="band-member" onclick="showBandMember('calla')">
+            <div class="band-avatar" style="background: linear-gradient(45deg, #22c55e, #15803d);">🎵</div>
+            <h3>Calla Fenwick</h3>
+            <p>"Bass Guitar, Lyricist, Vocals"</p>
+          </div>
+          <div class="band-member" onclick="showBandMember('milo')">
+            <div class="band-avatar" style="background: linear-gradient(45deg, #9333ea, #6b21a8);">🥁</div>
+            <h3>Milo Dray</h3>
+            <p>"Drums, Percussion"</p>
+          </div>
+          <div class="band-member" onclick="showBandMember('jules')">
+            <div class="band-avatar" style="background: linear-gradient(45deg, #f59e0b, #d97706);">🎹</div>
+            <h3>Jules Avery</h3>
+            <p>"Keyboards, Synths, Piano, Backing Vocals"</p>
+          </div>
+          <div class="band-member" onclick="showBandMember('rowan')">
+            <div class="band-avatar" style="background: linear-gradient(45deg, #8b5cf6, #7c3aed);">🎻</div>
+            <h3>Rowan Lin</h3>
+            <p>"Acoustic Guitar, Violin, Backing Vocals"</p>
+          </div>
+        </div>
+        <div style="text-align: center; margin-top: 2rem; font-size: 1.3rem; font-style: italic; color: #ff6b35;">
+          "Music can rebuild what war destroys. Sing for Elloria."
+        </div>
+      </section>
+
+      <!-- Livestream -->
+      <section id="livestream" class="section">
+        <div style="background: rgba(0, 0, 0, 0.5); border-radius: 20px; padding: 2rem; margin: 2rem 0;">
+          <h2>🔴 Experience the Magic Live</h2>
+          <div style="width: 100%; height: 400px; background: linear-gradient(45deg, #1a0f2e, #2d1b3d); border-radius: 15px; display: flex; align-items: center; justify-content: center; font-size: 2rem; color: #ff6b35; border: 2px solid #ff6b35; margin-bottom: 2rem;">
+            🔴 LIVE: Soundcheck in Progress
+          </div>
+          
+          <div class="chat-container">
+            <div class="chat-section">
+              <div class="chat-header">
+                <h3>🎵 Tonight's Setlist</h3>
+              </div>
+              <div style="overflow-y: auto; flex: 1;">
+                <div style="padding: 0.5rem; margin: 0.5rem 0; background: rgba(255,107,53,0.2); border-radius: 5px; border-left: 4px solid #ff6b35;">1. Rise from Ashes</div>
+                <div style="padding: 0.5rem; margin: 0.5rem 0; background: rgba(255,255,255,0.1); border-radius: 5px;">2. Crystal Garden Dreams</div>
+                <div style="padding: 0.5rem; margin: 0.5rem 0; background: rgba(255,255,255,0.1); border-radius: 5px;">3. Storm of Hope</div>
+                <div style="padding: 0.5rem; margin: 0.5rem 0; background: rgba(255,255,255,0.1); border-radius: 5px;">4. Rebuilding Harmony</div>
+                <div style="padding: 0.5rem; margin: 0.5rem 0; background: rgba(255,255,255,0.1); border-radius: 5px;">5. Elloria's Dawn</div>
+              </div>
+            </div>
+            
+            <div class="chat-section">
+              <div class="chat-header">
+                <h3>💬 Live Chat</h3>
+                <span style="font-size: 0.9rem; color: #ff6b35;">
+                  🔥 <span id="chatViewers">2,847,293</span> fans watching
+                </span>
+              </div>
+              <div class="chat-messages" id="chatMessages">
+                <div class="chat-message">
+                  <span class="chat-user">DragonFan92:</span> This is amazing! 🔥 Just donated $50!
+                </div>
+                <div class="chat-message">
+                  <span class="chat-user">StormCaller:</span> TESSA PLAY STORM OF HOPE! ⚡⚡⚡
+                </div>
+                <div class="chat-message">
+                  <span class="chat-user">NatureHealer:</span> Donated $25 for the Crystal Gardens! 🌿
+                </div>
+                <div class="chat-message">
+                  <span class="chat-user">PhoenixRising:</span> 1.2 billion fans can't be wrong! 🔥🔥🔥
+                </div>
+              </div>
+              <div class="chat-input-area">
+                <input type="text" class="chat-input" id="chatInput" placeholder="Send magical message to 2.8M fans...">
+                <button class="btn btn-primary" onclick="sendChatMessage()" style="padding: 0.8rem 1rem;">Send</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- About Elloria -->
+      <section id="about" class="section">
+        <h2>The Kingdom That Needs Our Voice</h2>
+        <div style="background: rgba(0, 0, 0, 0.3); border-radius: 20px; padding: 2rem; margin: 2rem 0;">
+          <h3 style="text-align: center; margin-bottom: 2rem;">Elloria: Before & After the War</h3>
+          <div style="position: relative; width: 100%; height: 300px; overflow: hidden; border-radius: 15px; margin-bottom: 2rem;">
+            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(45deg, #4ade80, #22c55e, #16a34a);"></div>
+            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(45deg, #7c2d12, #dc2626, #991b1b); clip-path: polygon(50% 0%, 100% 0%, 100% 100%, 50% 100%); transition: clip-path 0.3s ease;" id="mapAfter"></div>
+            <div style="position: absolute; top: 0; left: 50%; width: 4px; height: 100%; background: #ff6b35; cursor: ew-resize; z-index: 20;" id="sliderHandle"></div>
+          </div>
+          <p style="text-align: center; margin-bottom: 2rem;">Drag the slider to see the devastation. Your donation helps rebuild hope.</p>
+          
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+            <div style="background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 10px; cursor: pointer;" onclick="showStory('library')">
+              <h4>📚 The Great Library</h4>
+              <p>Once held 50,000 scrolls of ancient wisdom</p>
+            </div>
+            <div style="background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 10px; cursor: pointer;" onclick="showStory('gardens')">
+              <h4>🌸 Crystal Gardens</h4>
+              <p>Magical healing springs for all creatures</p>
+            </div>
+            <div style="background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 10px; cursor: pointer;" onclick="showStory('academy')">
+              <h4>🎭 Academy of Arts</h4>
+              <p>Where young bards learned their craft</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer style="background: rgba(0, 0, 0, 0.8); padding: 3rem 2rem; text-align: center; border-top: 2px solid #ff6b35;">
+      <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+        <div>
+          <h3>Connect with the Wildfire</h3>
+          <div style="display: flex; justify-content: center; gap: 2rem; margin: 2rem 0;">
+            <a href="#" style="font-size: 2rem; color: #ff6b35; transition: all 0.3s ease; text-decoration: none;">🐦</a>
+            <a href="#" style="font-size: 2rem; color: #ff6b35; transition: all 0.3s ease; text-decoration: none;">📸</a>
+            <a href="#" style="font-size: 2rem; color: #ff6b35; transition: all 0.3s ease; text-decoration: none;">🎵</a>
+            <a href="#" style="font-size: 2rem; color: #ff6b35; transition: all 0.3s ease; text-decoration: none;">📖</a>
+          </div>
+        </div>
+        <div>
+          <h3>Our Partners</h3>
+          <p>Council of Mages • Heroes Guild • Bards Alliance</p>
+        </div>
+        <div>
+          <h3>Impact Stories</h3>
+          <p>Read letters from Elloria's people and see how your donations make a difference.</p>
+        </div>
+      </div>
+      <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid #ff6b35;">
+        <p>&copy; 2025 Wildfire Veil Charity Concert • All donations enchanted for transparency by the Council of Mages</p>
+        <p style="margin-top: 1rem; color: rgba(255,255,255,0.7);">🔥 Together, we reignite hope for Elloria 🔥</p>
+      </div>
+    </footer>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <div id="modalContent"></div>
+      </div>
+    </div>
+
+    <!-- Live Notification Container -->
+    <div id="live-notification-container" class="live-notification-container"></div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
